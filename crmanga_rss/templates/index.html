@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Crunchyroll Manga RSS</h1>
+<p>Pick an RSS feed:</p>
+<section id="series">
+	<ul>
+		{% for s in series %}
+		<li>
+			<a {{ {"href": url_for("views.feed", slug=s.slug)} | xmlattr }}>{{s.title}}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}
